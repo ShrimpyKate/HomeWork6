@@ -20,30 +20,30 @@ int[] Array(int size)
   return new int[size];
 }
 
-//Наполнить массив из консоли пользователем и распечатать
-//  void FillArrByUser(int[] arr,int size)
-//  {
-//    Console.WriteLine($"Введите {size} элементов массива: ");
-//   for (int i = 0; i < arr.Length; i++)
-//   {
-//     arr[i]= int.Parse(Console.ReadLine());
-//   }
-//  }
-
-//3.Наполнить массив случайным образом и распечатать
-int[] FillArray(int[] arr)
-{
-  int index = 0;
-  int lenght = arr.Length;
-  while (index < lenght)
+//3.1Наполнить массив из консоли пользователем и распечатать
+ void FillArrByUser(int[] arr,int size)
+ {
+   Console.WriteLine($"Введите {size} элементов массива: ");
+  for (int i = 0; i < arr.Length; i++)
   {
-    arr[index] = Random.Shared.Next(-10, 10);
-    Console.Write($"{arr[index]} ");
-    index++;
+    arr[i]= int.Parse(Console.ReadLine());
   }
-  Console.WriteLine();
-  return arr;
-}
+ }
+
+// //3.Наполнить массив случайным образом и распечатать
+// int[] FillArray(int[] arr)
+// {
+//   int index = 0;
+//   int lenght = arr.Length;
+//   while (index < lenght)
+//   {
+//     arr[index] = Random.Shared.Next(-10, 10);
+//     Console.Write($"{arr[index]} ");
+//     index++;
+//   }
+//   Console.WriteLine();
+//   return arr;
+// }
 
 int FindPositiveCount(int[] array)
 {
@@ -63,7 +63,7 @@ void PrintCount(int count)
 
 int size = GetArraySize();
 int[] arrNumber = Array(size);
-//FillArrByUser(arrNumber,size);
-FillArray(arrNumber);
+FillArrByUser(arrNumber,size);
+//FillArray(arrNumber);
 int count=FindPositiveCount(arrNumber);
 PrintCount(count);
