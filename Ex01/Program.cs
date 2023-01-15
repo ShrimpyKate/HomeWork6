@@ -20,7 +20,7 @@ int[] Array(int size)
   return new int[size];
 }
 
-
+//Наполнить массив из консоли пользователем и распечатать
 //  void FillArrByUser(int[] arr,int size)
 //  {
 //    Console.WriteLine($"Введите {size} элементов массива: ");
