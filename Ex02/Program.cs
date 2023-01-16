@@ -4,47 +4,34 @@
 //b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 
 //1.create points
-(double x, double y) CreatePoint()
+(double a, double b) CreatePoint()
 {
   Console.WriteLine("Введите значение первой точки прямой: ");
-  double x = double.Parse(Console.ReadLine());
+  double a = double.Parse(Console.ReadLine());
   Console.WriteLine("Введите значение второй прямой точки: ");
-  double y = double.Parse(Console.ReadLine());
+  double b = double.Parse(Console.ReadLine());
+  return (a, b);
+}
+// 3. find cord of coross the linse
+(double, double) GetCrossOfLines(double b1, double k1, double b2, double k2)
+{
+  double x = (b2 - b1) / (k1 - k2);
+  double y = k1 * x + b1;
   return (x, y);
 }
-// 3.
-(double, double) GetCrossOfLines(double linePointB1, double linePointK1,
-                     double linePointB2, double linePointK2)
-{
-  double pointOflineCrossX = (linePointB2 - linePointB1) / (linePointK1 - linePointK2);
-
-  double pointOflineCrossY = ((linePointK1 * linePointB2) - (linePointK2 * linePointB1)) / (linePointK1 - linePointK2);
-
-
-  return (pointOflineCrossX, pointOflineCrossY);
-}
-
+//4.Print 
 void PrintCord(double x, double y)
 {
   Console.WriteLine($"Координаты пересечения линий: {x},{y}");
 }
 
-
-var pointsOfline1 = CreatePoint();
-
+(double x, double y) pointsOfline1 = CreatePoint();
 Console.WriteLine($"Координаты первой прямой:{pointsOfline1}");
-double linePointB1 = (pointsOfline1.Item1);
-double linePointK1 = (pointsOfline1.Item2);
-var pointsOfline2 = CreatePoint();
-double linePointB2 = (pointsOfline2.Item1);
-double linePointK2 = (pointsOfline2.Item2);
+(double x, double y) pointsOfline2 = CreatePoint();
 Console.WriteLine($"Координаты второй прямой:{pointsOfline2}");
-Console.WriteLine($"b1={linePointB1}  k1={(linePointK1)}  b2={(linePointB2-linePointB1)/(linePointK1-linePointK2)}   k2={linePointK2}");
 
-(double pointOflineCrossX, double pointOflineCrossY) = GetCrossOfLines(linePointB1, linePointB2, linePointK1, linePointK2);
+(double x, double y) result = GetCrossOfLines(pointsOfline1.x, pointsOfline1.y, pointsOfline2.x, pointsOfline2.y);
 
-PrintCord(pointOflineCrossX, pointOflineCrossY);
-
-
+PrintCord(result.x, result.y);
 
 
