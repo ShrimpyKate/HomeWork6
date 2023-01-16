@@ -4,22 +4,22 @@
 //b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 
 //1.create points
-(double a, double b) CreatePoint()
+(double x, double y) CreatePoint()
 {
   Console.WriteLine("Введите значение первой точки прямой: ");
-  double a = double.Parse(Console.ReadLine());
+  double x = double.Parse(Console.ReadLine());
   Console.WriteLine("Введите значение второй прямой точки: ");
-  double b = double.Parse(Console.ReadLine());
-  return (a, b);
+  double y = double.Parse(Console.ReadLine());
+  return (x, y);
 }
-// 3. find cord of coross the linse
+// 2. find cord of coross the linse
 (double, double) GetCrossOfLines(double b1, double k1, double b2, double k2)
 {
   double x = (b2 - b1) / (k1 - k2);
   double y = k1 * x + b1;
   return (x, y);
 }
-//4.Print 
+//5.Print 
 void PrintCord(double x, double y)
 {
   Console.WriteLine($"Координаты пересечения линий: {x},{y}");
